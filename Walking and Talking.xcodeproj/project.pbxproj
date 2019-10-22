@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C47C80FA235F3CF6005E4808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C80F9235F3CF6005E4808 /* AppDelegate.swift */; };
+		C47C80FC235F3CF6005E4808 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C80FB235F3CF6005E4808 /* SceneDelegate.swift */; };
+		C47C80FE235F3CF6005E4808 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C80FD235F3CF6005E4808 /* FirstViewController.swift */; };
+		C47C8100235F3CF6005E4808 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C80FF235F3CF6005E4808 /* SecondViewController.swift */; };
+		C47C8103235F3CF6005E4808 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47C8101235F3CF6005E4808 /* Main.storyboard */; };
+		C47C8105235F3D00005E4808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C47C8104235F3D00005E4808 /* Assets.xcassets */; };
+		C47C8108235F3D00005E4808 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47C8106235F3D00005E4808 /* LaunchScreen.storyboard */; };
+		C47C8113235F3D01005E4808 /* Walking_and_TalkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C8112235F3D01005E4808 /* Walking_and_TalkingTests.swift */; };
+		C47C811E235F3D01005E4808 /* Walking_and_TalkingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C811D235F3D01005E4808 /* Walking_and_TalkingUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C47C810F235F3D01005E4808 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C47C80EE235F3CF6005E4808 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C47C80F5235F3CF6005E4808;
+			remoteInfo = "Walking and Talking";
+		};
+		C47C811A235F3D01005E4808 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C47C80EE235F3CF6005E4808 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C47C80F5235F3CF6005E4808;
+			remoteInfo = "Walking and Talking";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C47C80F6235F3CF6005E4808 /* Walking and Talking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Walking and Talking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C47C80F9235F3CF6005E4808 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C47C80FB235F3CF6005E4808 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C47C80FD235F3CF6005E4808 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		C47C80FF235F3CF6005E4808 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C47C8102235F3CF6005E4808 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C47C8104235F3D00005E4808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C47C8107235F3D00005E4808 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C47C8109235F3D00005E4808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C47C810E235F3D00005E4808 /* Walking and TalkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Walking and TalkingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C47C8112235F3D01005E4808 /* Walking_and_TalkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walking_and_TalkingTests.swift; sourceTree = "<group>"; };
+		C47C8114235F3D01005E4808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C47C8119235F3D01005E4808 /* Walking and TalkingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Walking and TalkingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C47C811D235F3D01005E4808 /* Walking_and_TalkingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walking_and_TalkingUITests.swift; sourceTree = "<group>"; };
+		C47C811F235F3D01005E4808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C47C80F3235F3CF6005E4808 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C47C810B235F3D00005E4808 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C47C8116235F3D01005E4808 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C47C80ED235F3CF6005E4808 = {
+			isa = PBXGroup;
+			children = (
+				C47C80F8235F3CF6005E4808 /* Walking and Talking */,
+				C47C8111235F3D01005E4808 /* Walking and TalkingTests */,
+				C47C811C235F3D01005E4808 /* Walking and TalkingUITests */,
+				C47C80F7235F3CF6005E4808 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C47C80F7235F3CF6005E4808 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C47C80F6235F3CF6005E4808 /* Walking and Talking.app */,
+				C47C810E235F3D00005E4808 /* Walking and TalkingTests.xctest */,
+				C47C8119235F3D01005E4808 /* Walking and TalkingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C47C80F8235F3CF6005E4808 /* Walking and Talking */ = {
+			isa = PBXGroup;
+			children = (
+				C47C80F9235F3CF6005E4808 /* AppDelegate.swift */,
+				C47C80FB235F3CF6005E4808 /* SceneDelegate.swift */,
+				C47C80FD235F3CF6005E4808 /* FirstViewController.swift */,
+				C47C80FF235F3CF6005E4808 /* SecondViewController.swift */,
+				C47C8101235F3CF6005E4808 /* Main.storyboard */,
+				C47C8104235F3D00005E4808 /* Assets.xcassets */,
+				C47C8106235F3D00005E4808 /* LaunchScreen.storyboard */,
+				C47C8109235F3D00005E4808 /* Info.plist */,
+			);
+			path = "Walking and Talking";
+			sourceTree = "<group>";
+		};
+		C47C8111235F3D01005E4808 /* Walking and TalkingTests */ = {
+			isa = PBXGroup;
+			children = (
+				C47C8112235F3D01005E4808 /* Walking_and_TalkingTests.swift */,
+				C47C8114235F3D01005E4808 /* Info.plist */,
+			);
+			path = "Walking and TalkingTests";
+			sourceTree = "<group>";
+		};
+		C47C811C235F3D01005E4808 /* Walking and TalkingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C47C811D235F3D01005E4808 /* Walking_and_TalkingUITests.swift */,
+				C47C811F235F3D01005E4808 /* Info.plist */,
+			);
+			path = "Walking and TalkingUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C47C80F5235F3CF6005E4808 /* Walking and Talking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C47C8122235F3D01005E4808 /* Build configuration list for PBXNativeTarget "Walking and Talking" */;
+			buildPhases = (
+				C47C80F2235F3CF6005E4808 /* Sources */,
+				C47C80F3235F3CF6005E4808 /* Frameworks */,
+				C47C80F4235F3CF6005E4808 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Walking and Talking";
+			productName = "Walking and Talking";
+			productReference = C47C80F6235F3CF6005E4808 /* Walking and Talking.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C47C810D235F3D00005E4808 /* Walking and TalkingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C47C8125235F3D01005E4808 /* Build configuration list for PBXNativeTarget "Walking and TalkingTests" */;
+			buildPhases = (
+				C47C810A235F3D00005E4808 /* Sources */,
+				C47C810B235F3D00005E4808 /* Frameworks */,
+				C47C810C235F3D00005E4808 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C47C8110235F3D01005E4808 /* PBXTargetDependency */,
+			);
+			name = "Walking and TalkingTests";
+			productName = "Walking and TalkingTests";
+			productReference = C47C810E235F3D00005E4808 /* Walking and TalkingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C47C8118235F3D01005E4808 /* Walking and TalkingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C47C8128235F3D01005E4808 /* Build configuration list for PBXNativeTarget "Walking and TalkingUITests" */;
+			buildPhases = (
+				C47C8115235F3D01005E4808 /* Sources */,
+				C47C8116235F3D01005E4808 /* Frameworks */,
+				C47C8117235F3D01005E4808 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C47C811B235F3D01005E4808 /* PBXTargetDependency */,
+			);
+			name = "Walking and TalkingUITests";
+			productName = "Walking and TalkingUITests";
+			productReference = C47C8119235F3D01005E4808 /* Walking and TalkingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C47C80EE235F3CF6005E4808 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = "Kieran Waugh";
+				TargetAttributes = {
+					C47C80F5235F3CF6005E4808 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					C47C810D235F3D00005E4808 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = C47C80F5235F3CF6005E4808;
+					};
+					C47C8118235F3D01005E4808 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = C47C80F5235F3CF6005E4808;
+					};
+				};
+			};
+			buildConfigurationList = C47C80F1235F3CF6005E4808 /* Build configuration list for PBXProject "Walking and Talking" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C47C80ED235F3CF6005E4808;
+			productRefGroup = C47C80F7235F3CF6005E4808 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C47C80F5235F3CF6005E4808 /* Walking and Talking */,
+				C47C810D235F3D00005E4808 /* Walking and TalkingTests */,
+				C47C8118235F3D01005E4808 /* Walking and TalkingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C47C80F4235F3CF6005E4808 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C47C8108235F3D00005E4808 /* LaunchScreen.storyboard in Resources */,
+				C47C8105235F3D00005E4808 /* Assets.xcassets in Resources */,
+				C47C8103235F3CF6005E4808 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C47C810C235F3D00005E4808 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C47C8117235F3D01005E4808 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C47C80F2235F3CF6005E4808 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C47C8100235F3CF6005E4808 /* SecondViewController.swift in Sources */,
+				C47C80FE235F3CF6005E4808 /* FirstViewController.swift in Sources */,
+				C47C80FA235F3CF6005E4808 /* AppDelegate.swift in Sources */,
+				C47C80FC235F3CF6005E4808 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C47C810A235F3D00005E4808 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C47C8113235F3D01005E4808 /* Walking_and_TalkingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C47C8115235F3D01005E4808 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C47C811E235F3D01005E4808 /* Walking_and_TalkingUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C47C8110235F3D01005E4808 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C47C80F5235F3CF6005E4808 /* Walking and Talking */;
+			targetProxy = C47C810F235F3D01005E4808 /* PBXContainerItemProxy */;
+		};
+		C47C811B235F3D01005E4808 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C47C80F5235F3CF6005E4808 /* Walking and Talking */;
+			targetProxy = C47C811A235F3D01005E4808 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C47C8101235F3CF6005E4808 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C47C8102235F3CF6005E4808 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C47C8106235F3D00005E4808 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C47C8107235F3D00005E4808 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C47C8120235F3D01005E4808 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C47C8121235F3D01005E4808 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C47C8123235F3D01005E4808 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55738Z777S;
+				INFOPLIST_FILE = "Walking and Talking/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kieranwaugh.Walking-and-Talking";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C47C8124235F3D01005E4808 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55738Z777S;
+				INFOPLIST_FILE = "Walking and Talking/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kieranwaugh.Walking-and-Talking";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C47C8126235F3D01005E4808 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55738Z777S;
+				INFOPLIST_FILE = "Walking and TalkingTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kieranwaugh.Walking-and-TalkingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Walking and Talking.app/Walking and Talking";
+			};
+			name = Debug;
+		};
+		C47C8127235F3D01005E4808 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55738Z777S;
+				INFOPLIST_FILE = "Walking and TalkingTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kieranwaugh.Walking-and-TalkingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Walking and Talking.app/Walking and Talking";
+			};
+			name = Release;
+		};
+		C47C8129235F3D01005E4808 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55738Z777S;
+				INFOPLIST_FILE = "Walking and TalkingUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kieranwaugh.Walking-and-TalkingUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Walking and Talking";
+			};
+			name = Debug;
+		};
+		C47C812A235F3D01005E4808 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55738Z777S;
+				INFOPLIST_FILE = "Walking and TalkingUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kieranwaugh.Walking-and-TalkingUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Walking and Talking";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C47C80F1235F3CF6005E4808 /* Build configuration list for PBXProject "Walking and Talking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C47C8120235F3D01005E4808 /* Debug */,
+				C47C8121235F3D01005E4808 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C47C8122235F3D01005E4808 /* Build configuration list for PBXNativeTarget "Walking and Talking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C47C8123235F3D01005E4808 /* Debug */,
+				C47C8124235F3D01005E4808 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C47C8125235F3D01005E4808 /* Build configuration list for PBXNativeTarget "Walking and TalkingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C47C8126235F3D01005E4808 /* Debug */,
+				C47C8127235F3D01005E4808 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C47C8128235F3D01005E4808 /* Build configuration list for PBXNativeTarget "Walking and TalkingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C47C8129235F3D01005E4808 /* Debug */,
+				C47C812A235F3D01005E4808 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C47C80EE235F3CF6005E4808 /* Project object */;
+}
