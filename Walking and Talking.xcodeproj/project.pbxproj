@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		71810F6B33C65554F8624BEB /* Pods_Walking_and_Talking_Walking_and_TalkingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DFD19014C2AAAB4EC4575A /* Pods_Walking_and_Talking_Walking_and_TalkingUITests.framework */; };
 		8F7CD63DC3BFEDBE639DDCED /* Pods_Walking_and_Talking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EC7D14077E95E43EAA2096 /* Pods_Walking_and_Talking.framework */; };
+		C424F508236B2A5900B547E0 /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424F507236B2A5900B547E0 /* SavedTableViewCell.swift */; };
+		C424F50A236B2A6800B547E0 /* NearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424F509236B2A6800B547E0 /* NearTableViewCell.swift */; };
 		C47C80FA235F3CF6005E4808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C80F9235F3CF6005E4808 /* AppDelegate.swift */; };
 		C47C80FC235F3CF6005E4808 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C80FB235F3CF6005E4808 /* SceneDelegate.swift */; };
 		C47C80FE235F3CF6005E4808 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C80FD235F3CF6005E4808 /* LocationViewController.swift */; };
@@ -18,7 +20,6 @@
 		C47C8108235F3D00005E4808 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47C8106235F3D00005E4808 /* LaunchScreen.storyboard */; };
 		C47C8113235F3D01005E4808 /* Walking_and_TalkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C8112235F3D01005E4808 /* Walking_and_TalkingTests.swift */; };
 		C47C811E235F3D01005E4808 /* Walking_and_TalkingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C811D235F3D01005E4808 /* Walking_and_TalkingUITests.swift */; };
-		C47C812C2360865A005E4808 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C812B2360865A005E4808 /* ShadowView.swift */; };
 		CF8D1A110B78F19C78DC8133 /* Pods_Walking_and_TalkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73FD7758B219238C96BC94FB /* Pods_Walking_and_TalkingTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,8 @@
 		7FE1F3BAD32ED8EEAB03AB57 /* Pods-Walking and Talking-Walking and TalkingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walking and Talking-Walking and TalkingUITests.release.xcconfig"; path = "Target Support Files/Pods-Walking and Talking-Walking and TalkingUITests/Pods-Walking and Talking-Walking and TalkingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		84EC7D14077E95E43EAA2096 /* Pods_Walking_and_Talking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walking_and_Talking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DFD19014C2AAAB4EC4575A /* Pods_Walking_and_Talking_Walking_and_TalkingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walking_and_Talking_Walking_and_TalkingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C424F507236B2A5900B547E0 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
+		C424F509236B2A6800B547E0 /* NearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearTableViewCell.swift; sourceTree = "<group>"; };
 		C47C80F6235F3CF6005E4808 /* Walking and Talking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Walking and Talking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47C80F9235F3CF6005E4808 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C47C80FB235F3CF6005E4808 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +66,6 @@
 		C47C8119235F3D01005E4808 /* Walking and TalkingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Walking and TalkingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47C811D235F3D01005E4808 /* Walking_and_TalkingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walking_and_TalkingUITests.swift; sourceTree = "<group>"; };
 		C47C811F235F3D01005E4808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C47C812B2360865A005E4808 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		CB48AAFD4E37B80EDC7CBF0B /* Pods-Walking and Talking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walking and Talking.release.xcconfig"; path = "Target Support Files/Pods-Walking and Talking/Pods-Walking and Talking.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,9 +138,10 @@
 				C47C80F9235F3CF6005E4808 /* AppDelegate.swift */,
 				C47C80FB235F3CF6005E4808 /* SceneDelegate.swift */,
 				C47C80FD235F3CF6005E4808 /* LocationViewController.swift */,
+				C424F507236B2A5900B547E0 /* SavedTableViewCell.swift */,
+				C424F509236B2A6800B547E0 /* NearTableViewCell.swift */,
 				C47C80FF235F3CF6005E4808 /* MapViewController.swift */,
 				C47C8101235F3CF6005E4808 /* Main.storyboard */,
-				C47C812B2360865A005E4808 /* ShadowView.swift */,
 				C47C8104235F3D00005E4808 /* Assets.xcassets */,
 				C47C8106235F3D00005E4808 /* LaunchScreen.storyboard */,
 				C47C8109235F3D00005E4808 /* Info.plist */,
@@ -414,10 +417,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C47C8100235F3CF6005E4808 /* MapViewController.swift in Sources */,
+				C424F50A236B2A6800B547E0 /* NearTableViewCell.swift in Sources */,
 				C47C80FE235F3CF6005E4808 /* LocationViewController.swift in Sources */,
 				C47C80FA235F3CF6005E4808 /* AppDelegate.swift in Sources */,
+				C424F508236B2A5900B547E0 /* SavedTableViewCell.swift in Sources */,
 				C47C80FC235F3CF6005E4808 /* SceneDelegate.swift in Sources */,
-				C47C812C2360865A005E4808 /* ShadowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +598,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55738Z777S;
 				INFOPLIST_FILE = "Walking and Talking/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -613,6 +618,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55738Z777S;
 				INFOPLIST_FILE = "Walking and Talking/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
