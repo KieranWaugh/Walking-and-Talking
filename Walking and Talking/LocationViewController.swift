@@ -7,104 +7,115 @@
 //
 
 import UIKit
+import GooglePlaces
 
-class LocationViewController: UIViewController {
-
+class LocationViewController: UITableViewController {
     
-    let sectionTitle = ["Saved", "Near You"]
-    let items = [["saved 1", "saved 2"],["near 1", "near 2"]]
+    var placesClient: GMSPlacesClient!
+    
+    let sectionTitle = ["", "Saved", "Near You"]
+    let items = [["row"],["saved 1", "saved 2"],["Restaurants", "transport", "Medical"]]
     
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
-    @IBOutlet weak var tableView: UITableView!
+    //@IBOutlet weak var tableView: UITableView!
+    
     
     @IBOutlet weak var locationLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        locationLabel.adjustsFontSizeToFitWidth = true
-        
-
-        tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        placesClient = GMSPlacesClient.shared()
+        //locationLabel.adjustsFontSizeToFitWidth = true
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Location"
+        //tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        delegate.getPlacemark(forLocation: delegate.locationlist.last!) {
-        (originPlacemark, error) in
-            if let err = error {
-                print(err)
-            } else if let placemark = originPlacemark {
-                // Do something with the placemark
-                if ((placemark.name) != nil) {
-                    print("placemark: \((placemark.name)!)")
-                    self.locationLabel.text = (placemark.name)!
-                }
-                
-                
-            }
+        
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.section == 0){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! LocationTableViewCell
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+            cell.updateLocaition()
         }
     }
     
-
-}
-
-extension UIBarButtonItem {
-    var view: UIView? {
-        return value(forKey: "view") as? UIView
-    }
-}
-
-extension LocationViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+   override func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitle.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items[section].count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if (indexPath.section == 0) {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath.section == 0){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell")
+            cell!.selectionStyle = .none
+            return cell!
+        }
+        else if (indexPath.section == 1) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SavedCell", for: indexPath)
-            cell.textLabel?.text = items[indexPath.section][indexPath.item]
+            
+            let label = cell.contentView.viewWithTag(1) as! UILabel
+            label.text = items[indexPath.section ][indexPath.item]
+            cell.selectionStyle = .none
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "NearCell", for: indexPath)
-            cell.textLabel?.text = items[indexPath.section][indexPath.item]
+            let label = cell.contentView.viewWithTag(2) as! UILabel
+            label.text = items[indexPath.section ][indexPath.item]
+            cell.selectionStyle = .none
             return cell
         }
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return mobileBrand[section].brandName
-//    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
-        //view.backgroundColor = #colorLiteral(red: 1, green: 0.3653766513, blue: 0.1507387459, alpha: 1)
-        view.backgroundColor = #colorLiteral(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
-        
-        let lbl = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width - 15, height: 40))
-        lbl.font = UIFont.systemFont(ofSize: 20)
-        lbl.text = sectionTitle[section]
-        view.addSubview(lbl)
-        return view
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (section == 0){
+            return nil
+        }else{
+            return sectionTitle[section]
+        }
+
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (section == 0) {
+            return 0
+        }
+
         return 40
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath.section == 0){
+            return 80
+        }else{
+            return 40
+        }
+    
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "NearYouSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow{
+                let title = items[indexPath.section ][indexPath.item]
+                if let controller = (segue.destination as? UINavigationController)?.topViewController as?  NearYouViewController{
+                    controller.title = title
+                    controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                    controller.navigationItem.leftItemsSupplementBackButton = true
+                }
+            }
+        }
+    }
 }
+
+
 
 
