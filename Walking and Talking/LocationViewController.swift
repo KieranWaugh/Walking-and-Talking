@@ -12,13 +12,19 @@ import GooglePlaces
 class LocationViewController: UITableViewController {
     
     var placesClient: GMSPlacesClient!
+    private var nearYouLocations : [String] = []
     
     let sectionTitle = ["", "Saved", "Near You"]
-    let items = [["row"],["saved 1", "saved 2"],["Restaurants", "transport", "Medical"]]
+    var items = [[""],[""],[""]]
+    var favourites : [Place] = []
     
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
-    //@IBOutlet weak var tableView: UITableView!
+    let fileManager = FileManager.default
+    var documentsFolder : URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask).first!
+    }
+    
     
     
     @IBOutlet weak var locationLabel: UILabel!
@@ -29,6 +35,12 @@ class LocationViewController: UITableViewController {
         //locationLabel.adjustsFontSizeToFitWidth = true
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Location"
+        
+        //nearYouLocations = self.load()
+        
+        loadData()
+        
+        
         //tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
     
@@ -38,12 +50,70 @@ class LocationViewController: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //super.viewDidAppear(animated)
+        loadData()
+        print("will appear data \(items)")
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+    }
+    
+    func loadData(){
+        favourites = try! savedData.shared.loadFavourites()
+        print(savedData.shared.loadFavouritesNames())
+        if (try! savedData.shared.loadCategroies().count == 0){
+            //items = [["row"],savedData.shared.loadFavouritesNames(), ["New Category"]]
+            items[0]=(["row"])
+            items[1]=(savedData.shared.loadFavouritesNames())
+            items[2]=(["New Category"])
+        }else{
+            nearYouLocations = try! savedData.shared.loadCategroies()
+            //items = [["row"],savedData.shared.loadFavouritesNames(), nearYouLocations]
+            items[0]=(["row"])
+            items[1]=(savedData.shared.loadFavouritesNames())
+            items[2]=(nearYouLocations)
+        }
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.section == 0){
             let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! LocationTableViewCell
             tableView.reloadRows(at: [indexPath], with: .automatic)
             cell.updateLocaition()
+        }
+        
+        if (indexPath.section == 2 && indexPath.item == 0){
+            let alert = UIAlertController(title: "Name Category", message: "Enter a name for the category you would like to search.", preferredStyle: UIAlertController.Style.alert)
+            
+            let confirmAction = UIAlertAction(title: "OK", style: .default) { (_) in
+                
+                //getting the input values from user
+                var category = alert.textFields?[0].text
+                category = category?.trimmingCharacters(in: .illegalCharacters)
+                category = category?.trimmingCharacters(in: .whitespacesAndNewlines)
+                print("text is: \(category!)")
+                self.nearYouLocations.append(category!)
+                print(self.nearYouLocations)
+                self.items = [["row"],savedData.shared.loadFavouritesNames(), self.nearYouLocations]
+                savedData.shared.saveCategries(list: self.nearYouLocations)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
+            }
+            
+            alert.addAction(confirmAction)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+            alert.addTextField(configurationHandler: {(textField: UITextField!) in
+                textField.placeholder = "Enter text:"
+                textField.isSecureTextEntry = false
+                textField.autocapitalizationType = .words// for password input
+                
+            })
+            
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -65,15 +135,42 @@ class LocationViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SavedCell", for: indexPath)
             
             let label = cell.contentView.viewWithTag(1) as! UILabel
-            label.text = items[indexPath.section ][indexPath.item]
+            print(indexPath.row)
+            label.text = items[indexPath.section][indexPath.row]
             cell.selectionStyle = .none
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NearCell", for: indexPath)
-            let label = cell.contentView.viewWithTag(2) as! UILabel
-            label.text = items[indexPath.section ][indexPath.item]
-            cell.selectionStyle = .none
-            return cell
+            
+            if (indexPath.item == 0){
+                let cell = tableView.dequeueReusableCell(withIdentifier: "newCell", for: indexPath)
+                let label = cell.contentView.viewWithTag(6) as! UILabel
+                label.text = items[indexPath.section ][indexPath.item]
+                cell.selectionStyle = .none
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "NearCell", for: indexPath)
+                let label = cell.contentView.viewWithTag(2) as! UILabel
+                label.text = items[indexPath.section ][indexPath.item]
+                cell.selectionStyle = .none
+                return cell
+            }
+            
+            
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if indexPath.section == 2 && indexPath.row != 0 {
+            return UITableViewCell.EditingStyle.delete
+        }else if indexPath.section == 1{
+            if (items[1][indexPath.row] == "You Currently Have No Favourites."){
+                return UITableViewCell.EditingStyle.none
+            }else{
+                return UITableViewCell.EditingStyle.delete
+            }
+        }
+        else {
+            return UITableViewCell.EditingStyle.none
         }
     }
     
@@ -85,6 +182,37 @@ class LocationViewController: UITableViewController {
         }
 
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if (indexPath.section == 2){
+            if editingStyle == .delete {
+               self.nearYouLocations.remove(at: indexPath.row)
+                self.items[indexPath.section].remove(at: indexPath.row)
+               tableView.deleteRows(at: [indexPath], with: .fade)
+                savedData.shared.saveCategries(list: nearYouLocations)
+                
+            }
+        }
+        
+        if (indexPath.section == 1){
+            if editingStyle == .delete {
+                self.favourites.remove(at: indexPath.row)
+                self.items[indexPath.section].remove(at: indexPath.row)
+               tableView.deleteRows(at: [indexPath], with: .fade)
+                savedData.shared.updateFavourites(locations: favourites)
+                
+                if items[1].count == 0 {
+                    items[1].append( "You Currently Have No Favourites.")
+                    tableView.reloadData()
+                }
+                
+            }
+        }
+        
+        
+    }
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if (section == 0) {
             return 0
@@ -113,7 +241,30 @@ class LocationViewController: UITableViewController {
                 }
             }
         }
+        
+        if segue.identifier == "favouriteSegue" {
+            
+            if let indexPath = tableView.indexPathForSelectedRow{
+                print("segue \(favourites[indexPath.row])")
+                print("segue \(favourites[indexPath.row].name!)")
+             let title = favourites[indexPath.row].name
+                if let controller = (segue.destination as? UINavigationController)?.topViewController as?  CategoryViewController{
+                     controller.title = title! 
+                 
+               
+                 
+                 
+                    controller.location = favourites[indexPath.row]
+                     controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                     controller.navigationItem.leftItemsSupplementBackButton = true
+                }
+            }
+        }
+
     }
+    
+    
+    
 }
 
 
