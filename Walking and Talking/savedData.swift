@@ -16,11 +16,12 @@ class savedData {
     
     var Favoutites : [String] = []
     
-    var Settings : [String] = ["default", "100", "5", "en-gb"]
+    var Settings : [String] = ["default", "100", "5", "1", "en-gb"]
     // [0] - default ["default", "100"]
     // [1] - radius
     // [2] - speach rate
-    // [3] - speak region
+    // [3] - timer
+    // [4] - speech region
     
     public func saveCategries(list: [String]){
         let dir = try? FileManager.default.url(for: .documentDirectory,
@@ -91,7 +92,6 @@ class savedData {
             return placeArray
         }
         
-       // print("Favourites: \(placeArray)")
         
     }
     
@@ -122,6 +122,7 @@ class savedData {
     
     func updateSettings(index: Int, value: String){
         Settings[index] = value
+        //Settings = ["default", "100", "5", "1", "en-gb"]
         //Settings = ["default", "100", "5", "en-gb"] // for debugging
         print("updates settings \(Settings)")
         let settingsData = try! JSONEncoder().encode(Settings)
@@ -135,14 +136,14 @@ class savedData {
         
         if (settingsData == nil){
             print("settings is nil")
-            Settings = ["default", "100", "5", "en-gb"]
+            Settings = ["default", "100", "5", "1", "en-gb"]
             return Settings
             
         }else{
             settingsArray = try! JSONDecoder().decode([String].self, from: settingsData!)
             if (settingsArray.count == 0){
                 print("settings is 0")
-                Settings = ["default", "100", "5", "en-gb"]
+                Settings = ["default", "100", "5", "1", "en-gb"]
                 return settingsArray
             }
             print("saved settings \(settingsArray)")

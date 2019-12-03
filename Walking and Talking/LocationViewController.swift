@@ -37,8 +37,11 @@ class LocationViewController: UITableViewController {
         
                 
         loadData()
+        print("times \((savedData.shared.getSettings()[3]))")
+        let sav = Double(savedData.shared.getSettings()[3])
         
-        let timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
+        print("times \(Int(sav!*60)/60)")
+        let timer = Timer.scheduledTimer(withTimeInterval: sav!*60, repeats: true) { timer in
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! LocationTableViewCell
             let indexPath = IndexPath(item: 0, section: 0)
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
