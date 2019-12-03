@@ -96,7 +96,7 @@ class savedData {
     }
     
     func removeFav(id : String){
-        var currentList : [Place] = try! loadFavourites()
+        let currentList : [Place] = try! loadFavourites()
         var counter = 0
         for item in currentList {
             print("found item at index \(counter)")
