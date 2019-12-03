@@ -51,7 +51,7 @@ class NearYouViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //navigationController?.delegate = self as! UINavigationControllerDelegate
-        downloadURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\((delegate.locationlist.last?.coordinate.latitude)!),\((delegate.locationlist.last?.coordinate.longitude)!)&radius=100&keyword=\((self.title)!)&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc"
+        downloadURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\((delegate.locationlist.last?.coordinate.latitude)!),\((delegate.locationlist.last?.coordinate.longitude)!)&radius=\(savedData.shared.getSettings()[1])&keyword=\((self.title)!)&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc"
 
         dataDownload()
     }
@@ -64,7 +64,6 @@ class NearYouViewController: UITableViewController {
                   do {
                      let res = try JSONDecoder().decode(Collection.self, from: data)
                     for result in res.results {
-                        print("JSON name \(result.name) - \(result.geometry.location.lat), \(result.geometry.location.lng), \(result.opening_hours?.open_now)")
                         self.nameList.append(result.name)
                         self.list.append(result)
                         DispatchQueue.main.async {

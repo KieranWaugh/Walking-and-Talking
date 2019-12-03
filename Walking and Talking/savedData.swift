@@ -16,7 +16,11 @@ class savedData {
     
     var Favoutites : [String] = []
     
-    
+    var Settings : [String] = ["default", "100", "5", "en-gb"]
+    // [0] - default ["default", "100"]
+    // [1] - radius
+    // [2] - speach rate
+    // [3] - speak region
     
     public func saveCategries(list: [String]){
         let dir = try? FileManager.default.url(for: .documentDirectory,
@@ -26,7 +30,6 @@ class savedData {
     }
     
     func loadCategroies() throws ->[String]{
-        //let fileUrl = NSURL(fileURLWithPath: "/tmp/savedcategories.plist") // Your path here
         let dir = try? FileManager.default.url(for: .documentDirectory,
         in: .userDomainMask, appropriateFor: nil, create: true)
         let fileURL = dir?.appendingPathComponent("savedcategories").appendingPathExtension("plist")
@@ -49,11 +52,8 @@ class savedData {
         print(currentList)
         let placesData = try! JSONEncoder().encode(currentList)
         UserDefaults.standard.set(placesData, forKey: "favourites")
-        
-        
+            
     }
-    
-    
     
     func updateFavourites(locations: [Place]){
         
@@ -118,6 +118,36 @@ class savedData {
             names.append((place.name!))
         }
         return names
+    }
+    
+    func updateSettings(index: Int, value: String){
+        Settings[index] = value
+        //Settings = ["default", "100", "5", "en-gb"] // for debugging
+        print("updates settings \(Settings)")
+        let settingsData = try! JSONEncoder().encode(Settings)
+        UserDefaults.standard.set(settingsData, forKey: "settings")
+    }
+    
+    func getSettings() -> [String]{
+        print("settings getting")
+        let settingsData = UserDefaults.standard.data(forKey: "settings")
+        var settingsArray : [String] = []
+        
+        if (settingsData == nil){
+            print("settings is nil")
+            Settings = ["default", "100", "5", "en-gb"]
+            return Settings
+            
+        }else{
+            settingsArray = try! JSONDecoder().decode([String].self, from: settingsData!)
+            if (settingsArray.count == 0){
+                print("settings is 0")
+                Settings = ["default", "100", "5", "en-gb"]
+                return settingsArray
+            }
+            print("saved settings \(settingsArray)")
+            return settingsArray
+        }
     }
     
     

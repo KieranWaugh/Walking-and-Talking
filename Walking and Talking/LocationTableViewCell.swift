@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class LocationTableViewCell: UITableViewCell {
 
+    static let shared = LocationTableViewCell()
     let delegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet weak var locationLabel: UILabel!
     
@@ -27,9 +29,14 @@ class LocationTableViewCell: UITableViewCell {
                         } else if let placemark = originPlacemark {
                             // Do something with the placemark
                             if ((placemark.name) != nil) {
-        //                        print("placemark: \((placemark.name)!)")
-        //                        self.locationLabel.text = (placemark.name)!
                                 self.locationLabel.text = (placemark.name)!
+                                let utterance = AVSpeechUtterance(string: (placemark.name)!)
+                                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                                print("speech \(savedData.shared.getSettings()[2])")
+                                utterance.rate = (Float(savedData.shared.getSettings()[2]))!/Float(10)
+
+                                let synthesizer = AVSpeechSynthesizer()
+                                synthesizer.speak(utterance)
                                 
                             }else{
                                 self.locationLabel.text = "Locating You..."
@@ -37,6 +44,8 @@ class LocationTableViewCell: UITableViewCell {
                         }
                     }
                 }
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -56,6 +65,12 @@ class LocationTableViewCell: UITableViewCell {
                             if ((placemark.name) != nil) {
                                 self.locationLabel.text = (placemark.name)!
                                 print("updated location \((placemark.name)!)")
+//                                let utterance = AVSpeechUtterance(string: (placemark.name)!)
+//                                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+//                                utterance.rate = 0.5
+//
+//                                let synthesizer = AVSpeechSynthesizer()
+//                                synthesizer.speak(utterance)
                                 
                             }else{
                                 self.locationLabel.text = "Locating You..."

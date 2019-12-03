@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		71810F6B33C65554F8624BEB /* Pods_Walking_and_Talking_Walking_and_TalkingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DFD19014C2AAAB4EC4575A /* Pods_Walking_and_Talking_Walking_and_TalkingUITests.framework */; };
 		8F7CD63DC3BFEDBE639DDCED /* Pods_Walking_and_Talking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EC7D14077E95E43EAA2096 /* Pods_Walking_and_Talking.framework */; };
-		C412F876237047E100B23460 /* BaseNearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412F875237047E100B23460 /* BaseNearViewController.swift */; };
 		C424F508236B2A5900B547E0 /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424F507236B2A5900B547E0 /* SavedTableViewCell.swift */; };
 		C424F50A236B2A6800B547E0 /* NearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424F509236B2A6800B547E0 /* NearTableViewCell.swift */; };
+		C44CCF8C23968F2400DFC7A2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CCF8B23968F2400DFC7A2 /* SettingsViewController.swift */; };
 		C476FB942392C27F00B2DE66 /* savedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476FB932392C27F00B2DE66 /* savedData.swift */; };
 		C476FB962392CB3700B2DE66 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476FB952392CB3700B2DE66 /* Place.swift */; };
 		C47C80FA235F3CF6005E4808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C80F9235F3CF6005E4808 /* AppDelegate.swift */; };
@@ -55,9 +55,9 @@
 		7FE1F3BAD32ED8EEAB03AB57 /* Pods-Walking and Talking-Walking and TalkingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walking and Talking-Walking and TalkingUITests.release.xcconfig"; path = "Target Support Files/Pods-Walking and Talking-Walking and TalkingUITests/Pods-Walking and Talking-Walking and TalkingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		84EC7D14077E95E43EAA2096 /* Pods_Walking_and_Talking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walking_and_Talking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DFD19014C2AAAB4EC4575A /* Pods_Walking_and_Talking_Walking_and_TalkingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walking_and_Talking_Walking_and_TalkingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C412F875237047E100B23460 /* BaseNearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNearViewController.swift; sourceTree = "<group>"; };
 		C424F507236B2A5900B547E0 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
 		C424F509236B2A6800B547E0 /* NearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearTableViewCell.swift; sourceTree = "<group>"; };
+		C44CCF8B23968F2400DFC7A2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C476FB932392C27F00B2DE66 /* savedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savedData.swift; sourceTree = "<group>"; };
 		C476FB952392CB3700B2DE66 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		C47C80F6235F3CF6005E4808 /* Walking and Talking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Walking and Talking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,13 +151,13 @@
 				C47C80FB235F3CF6005E4808 /* SceneDelegate.swift */,
 				C47C80FD235F3CF6005E4808 /* LocationViewController.swift */,
 				C476FB932392C27F00B2DE66 /* savedData.swift */,
+				C44CCF8B23968F2400DFC7A2 /* SettingsViewController.swift */,
 				C424F507236B2A5900B547E0 /* SavedTableViewCell.swift */,
 				C424F509236B2A6800B547E0 /* NearTableViewCell.swift */,
 				C47C80FF235F3CF6005E4808 /* MapViewController.swift */,
 				C47C8101235F3CF6005E4808 /* Main.storyboard */,
 				C4E2A858237A169E007E61DF /* CategoryViewController.swift */,
 				C4D0602A2370C70C00F2A040 /* LocationTableViewCell.swift */,
-				C412F875237047E100B23460 /* BaseNearViewController.swift */,
 				C4B2FA3A236E090B0004D813 /* NearYouViewController.swift */,
 				C476FB952392CB3700B2DE66 /* Place.swift */,
 				C47C8104235F3D00005E4808 /* Assets.xcassets */,
@@ -445,7 +445,7 @@
 				C424F508236B2A5900B547E0 /* SavedTableViewCell.swift in Sources */,
 				C47C80FC235F3CF6005E4808 /* SceneDelegate.swift in Sources */,
 				C476FB962392CB3700B2DE66 /* Place.swift in Sources */,
-				C412F876237047E100B23460 /* BaseNearViewController.swift in Sources */,
+				C44CCF8C23968F2400DFC7A2 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

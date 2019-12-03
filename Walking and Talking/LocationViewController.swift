@@ -32,16 +32,23 @@ class LocationViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         placesClient = GMSPlacesClient.shared()
-        //locationLabel.adjustsFontSizeToFitWidth = true
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Location"
         
-        //nearYouLocations = self.load()
-        
+                
         loadData()
         
-        
-        //tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        let timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! LocationTableViewCell
+            let indexPath = IndexPath(item: 0, section: 0)
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            cell.updateLocaition()
+            print("timer")
+        }
+    }
+    
+    func refreshUI(){
+        tableView.reloadData()
     }
     
     
@@ -51,7 +58,7 @@ class LocationViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //super.viewDidAppear(animated)
+        super.viewDidAppear(animated)
         loadData()
         print("will appear data \(items)")
         DispatchQueue.main.async {
@@ -64,13 +71,11 @@ class LocationViewController: UITableViewController {
         favourites = try! savedData.shared.loadFavourites()
         print(savedData.shared.loadFavouritesNames())
         if (try! savedData.shared.loadCategroies().count == 0){
-            //items = [["row"],savedData.shared.loadFavouritesNames(), ["New Category"]]
             items[0]=(["row"])
             items[1]=(savedData.shared.loadFavouritesNames())
             items[2]=(["New Category"])
         }else{
             nearYouLocations = try! savedData.shared.loadCategroies()
-            //items = [["row"],savedData.shared.loadFavouritesNames(), nearYouLocations]
             items[0]=(["row"])
             items[1]=(savedData.shared.loadFavouritesNames())
             items[2]=(nearYouLocations)
