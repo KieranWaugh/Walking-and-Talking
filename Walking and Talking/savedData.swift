@@ -7,21 +7,42 @@
 //
 
 import Foundation
-
+import UIKit
 
 
 class savedData {
     
     static let shared = savedData()
-    
+    let delegate = UIApplication.shared.delegate as! AppDelegate
     var Favoutites : [String] = []
-    
+    var isSpeaking = false
     var Settings : [String] = ["default", "100", "5", "1", "en-gb"]
     // [0] - default ["default", "100"]
     // [1] - radius
     // [2] - speach rate
     // [3] - timer
     // [4] - speech region
+    
+    
+    struct Collection: Decodable { // or Decodable
+      let results: [Result]
+    }
+    struct Result : Decodable {
+               
+        let geometry : Geometry
+        let name : String
+    }
+           
+    struct Geometry : Decodable{
+        let location : Location
+        
+    }
+           
+    struct Location : Decodable {
+        let lat : Double
+        let lng :Double
+        
+    }
     
     public func saveCategries(list: [String]){
         let dir = try? FileManager.default.url(for: .documentDirectory,
@@ -151,5 +172,29 @@ class savedData {
         }
     }
     
+    func getBuilding(downloadURL: String, completion: @escaping (String) -> ()){
+
+            if let url = URL(string: downloadURL) {
+               URLSession.shared.dataTask(with: url) { data, response, error in
+                  if let data = data {
+                      do {
+                        let res = try JSONDecoder().decode(Collection.self, from: data)
+                        DispatchQueue.main.async {
+                            completion(res.results[0].name)
+                            
+                        }
+                        
+                      } catch let error {
+                         print("error is ", error)
+                        completion("Locating Error")
+                      }
+                   }
+               }.resume()
+            }
+        }
+        
+        
+        
+//        var downloadURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\((delegate.locationlist.last?.coordinate.latitude)!),\((delegate.locationlist.last?.coordinate.longitude)!)&fields=geometry,name&type=point_of_interest&rankby=distance&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc"
     
 }

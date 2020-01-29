@@ -35,17 +35,17 @@ class LocationViewController: UITableViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Location"
         
-                
         loadData()
         print("times \((savedData.shared.getSettings()[3]))")
         let sav = Double(savedData.shared.getSettings()[3])
         
         print("times \(Int(sav!*60)/60)")
-        let timer = Timer.scheduledTimer(withTimeInterval: sav!*60, repeats: true) { timer in
+        _ = Timer.scheduledTimer(withTimeInterval: sav!*60, repeats: true) { timer in
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! LocationTableViewCell
             let indexPath = IndexPath(item: 0, section: 0)
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            cell.updateLocaition()
+            //cell.updateLocaition()
+            //cell.speak()
             print("timer")
         }
     }
@@ -89,7 +89,9 @@ class LocationViewController: UITableViewController {
         if (indexPath.section == 0){
             let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! LocationTableViewCell
             tableView.reloadRows(at: [indexPath], with: .automatic)
-            cell.updateLocaition()
+            //cell.speak()
+            print("speaking - refresh")
+            //cell.updateLocaition()
         }
         
         if (indexPath.section == 2 && indexPath.item == 0){
@@ -135,9 +137,10 @@ class LocationViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0){
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell")
-            cell!.selectionStyle = .none
-            return cell!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! LocationTableViewCell
+            //cell.speak()
+            cell.selectionStyle = .none
+            return cell
         }
         else if (indexPath.section == 1) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SavedCell", for: indexPath)

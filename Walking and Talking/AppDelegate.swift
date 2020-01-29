@@ -8,6 +8,8 @@
 
 import UIKit
 import GoogleMaps
+import AVFoundation
+import MediaPlayer
 import GooglePlaces
 
 @UIApplicationMain
@@ -17,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     public var locationlist : [CLLocation] = []
 
+    
+    
+    // https://maps.googleapis.com/maps/api/directions/json?origin=55.950,-3.1840&destination=55.9444,-3.1870&mode=walking&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc
+    
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -42,13 +50,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             print("fatal error")
         }
         
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay])
+            print("Playback OK")
+            try AVAudioSession.sharedInstance().setActive(true)
+            print("Session is Active")
+        } catch {
+            print(error)
+        }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+        }
+        catch let error as NSError {
+            print("Error: Could not set audio category: \(error), \(error.userInfo)")
+        }
+
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        }
+        catch let error as NSError {
+            print("Error: Could not setActive to true: \(error), \(error.userInfo)")
+        }
+        
         
         
         return true
     }
     
     func LocationPersmissonsGranted() {
-        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.requestAlwaysAuthorization()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
@@ -62,6 +93,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         locationlist.append(locations.last!)
     }
+    
+    
     
     func getPlacemark(forLocation location: CLLocation, completionHandler: @escaping (CLPlacemark?, String?) -> ()) {
         let geocoder = CLGeocoder()

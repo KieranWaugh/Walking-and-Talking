@@ -50,7 +50,7 @@ class NearYouViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //navigationController?.delegate = self as! UINavigationControllerDelegate
+        print("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\((delegate.locationlist.last?.coordinate.latitude)!),\((delegate.locationlist.last?.coordinate.longitude)!)&radius=\(savedData.shared.getSettings()[1])&keyword=\((self.title)!)&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc")
         downloadURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\((delegate.locationlist.last?.coordinate.latitude)!),\((delegate.locationlist.last?.coordinate.longitude)!)&radius=\(savedData.shared.getSettings()[1])&keyword=\((self.title)!)&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc"
 
         dataDownload()
@@ -58,11 +58,13 @@ class NearYouViewController: UITableViewController {
     
     func dataDownload(){
         print(downloadURL)
+        downloadURL = downloadURL.replacingOccurrences(of: " ", with: "%20")
         if let url = URL(string: downloadURL) {
            URLSession.shared.dataTask(with: url) { data, response, error in
               if let data = data {
                   do {
                      let res = try JSONDecoder().decode(Collection.self, from: data)
+                    print(res)
                     for result in res.results {
                         self.nameList.append(result.name)
                         self.list.append(result)

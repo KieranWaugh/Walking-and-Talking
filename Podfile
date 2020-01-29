@@ -8,6 +8,8 @@ target 'Walking and Talking' do
   # Pods for Walking and Talking
 pod 'GoogleMaps'
 pod 'GooglePlaces'
+pod 'Alamofire' 
+pod 'SwiftyJSON'
 
   target 'Walking and TalkingTests' do
     inherit! :search_paths

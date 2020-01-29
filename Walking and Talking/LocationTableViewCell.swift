@@ -9,41 +9,39 @@
 import UIKit
 import AVFoundation
 
-class LocationTableViewCell: UITableViewCell {
+class LocationTableViewCell: UITableViewCell, AVSpeechSynthesizerDelegate {
 
     static let shared = LocationTableViewCell()
     let delegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet weak var locationLabel: UILabel!
+    var synth = AVSpeechSynthesizer()
+
+    //var isSpeaking = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        synth.delegate = self
         self.locationLabel.text = "Locating You..."
         self.locationLabel.adjustsFontSizeToFitWidth = true
         if (delegate.locationlist.last != nil){
-                    delegate.getPlacemark(forLocation: delegate.locationlist.last!) {
-                    (originPlacemark, error) in
-                        if let err = error {
-                            print(err)
-                        } else if let placemark = originPlacemark {
-                            // Do something with the placemark
-                            if ((placemark.name) != nil) {
-                                self.locationLabel.text = (placemark.name)!
-                                let utterance = AVSpeechUtterance(string: (placemark.name)!)
-                                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-                                print("speech \(savedData.shared.getSettings()[2])")
-                                utterance.rate = (Float(savedData.shared.getSettings()[2]))!/Float(10)
-
-                                let synthesizer = AVSpeechSynthesizer()
-                                synthesizer.speak(utterance)
-                                
-                            }else{
-                                self.locationLabel.text = "Locating You..."
-                            }
+            let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\((delegate.locationlist.last?.coordinate.latitude)!),\((delegate.locationlist.last?.coordinate.longitude)!)&type=point_of_interest&radius=100&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc"
+            print(url)
+            savedData.shared.getBuilding(downloadURL: url){(originPlacemark) in
+                    if ((originPlacemark) != nil) {
+                        self.locationLabel.text = (originPlacemark)
+                        if (savedData.shared.isSpeaking == false){
+                            savedData.shared.isSpeaking = true
+                            self.speak(place: originPlacemark)
                         }
+                    
+                    }else{
+                        self.locationLabel.text = "Locating You..."
                     }
-                }
+
+            }
+        }
+        
         
         
     }
@@ -54,30 +52,21 @@ class LocationTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateLocaition(){
-        if (delegate.locationlist.last != nil){
-                    delegate.getPlacemark(forLocation: delegate.locationlist.last!) {
-                    (originPlacemark, error) in
-                        if let err = error {
-                            print(err)
-                        } else if let placemark = originPlacemark {
-                            // Do something with the placemark
-                            if ((placemark.name) != nil) {
-                                self.locationLabel.text = (placemark.name)!
-                                print("updated location \((placemark.name)!)")
-//                                let utterance = AVSpeechUtterance(string: (placemark.name)!)
-//                                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-//                                utterance.rate = 0.5
-//
-//                                let synthesizer = AVSpeechSynthesizer()
-//                                synthesizer.speak(utterance)
-                                
-                            }else{
-                                self.locationLabel.text = "Locating You..."
-                            }
-                        }
-                    }
-                }
+    func speak(place: String){
+        print("in speaking")
+        let utterance = AVSpeechUtterance(string:" You are currently located near: \(place)")
+        utterance.voice = AVSpeechSynthesisVoice(language: "\(savedData.shared.getSettings()[4])")
+        utterance.rate = (Float(savedData.shared.getSettings()[2]))!/Float(10)
+        self.synth.speak(utterance)
     }
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        // do something useful here ...
+        savedData.shared.isSpeaking = false
+    }
+    
+    
 
 }
+
+

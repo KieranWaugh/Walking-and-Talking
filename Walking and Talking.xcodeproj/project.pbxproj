@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		71810F6B33C65554F8624BEB /* Pods_Walking_and_Talking_Walking_and_TalkingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DFD19014C2AAAB4EC4575A /* Pods_Walking_and_Talking_Walking_and_TalkingUITests.framework */; };
 		8F7CD63DC3BFEDBE639DDCED /* Pods_Walking_and_Talking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EC7D14077E95E43EAA2096 /* Pods_Walking_and_Talking.framework */; };
-		C424F508236B2A5900B547E0 /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424F507236B2A5900B547E0 /* SavedTableViewCell.swift */; };
+		C40D7DF923E06F5B00C0427D /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40D7DF823E06F5B00C0427D /* DirectionsViewController.swift */; };
 		C424F50A236B2A6800B547E0 /* NearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424F509236B2A6800B547E0 /* NearTableViewCell.swift */; };
 		C44CCF8C23968F2400DFC7A2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CCF8B23968F2400DFC7A2 /* SettingsViewController.swift */; };
+		C473B2EC23E0CF930096239E /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C473B2EB23E0CF930096239E /* Direction.swift */; };
 		C476FB942392C27F00B2DE66 /* savedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476FB932392C27F00B2DE66 /* savedData.swift */; };
 		C476FB962392CB3700B2DE66 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476FB952392CB3700B2DE66 /* Place.swift */; };
 		C47C80FA235F3CF6005E4808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47C80F9235F3CF6005E4808 /* AppDelegate.swift */; };
@@ -55,9 +56,10 @@
 		7FE1F3BAD32ED8EEAB03AB57 /* Pods-Walking and Talking-Walking and TalkingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walking and Talking-Walking and TalkingUITests.release.xcconfig"; path = "Target Support Files/Pods-Walking and Talking-Walking and TalkingUITests/Pods-Walking and Talking-Walking and TalkingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		84EC7D14077E95E43EAA2096 /* Pods_Walking_and_Talking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walking_and_Talking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DFD19014C2AAAB4EC4575A /* Pods_Walking_and_Talking_Walking_and_TalkingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walking_and_Talking_Walking_and_TalkingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C424F507236B2A5900B547E0 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
+		C40D7DF823E06F5B00C0427D /* DirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
 		C424F509236B2A6800B547E0 /* NearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearTableViewCell.swift; sourceTree = "<group>"; };
 		C44CCF8B23968F2400DFC7A2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C473B2EB23E0CF930096239E /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		C476FB932392C27F00B2DE66 /* savedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savedData.swift; sourceTree = "<group>"; };
 		C476FB952392CB3700B2DE66 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		C47C80F6235F3CF6005E4808 /* Walking and Talking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Walking and Talking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,11 +154,12 @@
 				C47C80FD235F3CF6005E4808 /* LocationViewController.swift */,
 				C476FB932392C27F00B2DE66 /* savedData.swift */,
 				C44CCF8B23968F2400DFC7A2 /* SettingsViewController.swift */,
-				C424F507236B2A5900B547E0 /* SavedTableViewCell.swift */,
 				C424F509236B2A6800B547E0 /* NearTableViewCell.swift */,
 				C47C80FF235F3CF6005E4808 /* MapViewController.swift */,
 				C47C8101235F3CF6005E4808 /* Main.storyboard */,
 				C4E2A858237A169E007E61DF /* CategoryViewController.swift */,
+				C40D7DF823E06F5B00C0427D /* DirectionsViewController.swift */,
+				C473B2EB23E0CF930096239E /* Direction.swift */,
 				C4D0602A2370C70C00F2A040 /* LocationTableViewCell.swift */,
 				C4B2FA3A236E090B0004D813 /* NearYouViewController.swift */,
 				C476FB952392CB3700B2DE66 /* Place.swift */,
@@ -207,6 +210,7 @@
 				C47C80F3235F3CF6005E4808 /* Frameworks */,
 				C47C80F4235F3CF6005E4808 /* Resources */,
 				C2B9AED5AF865CC332167C58 /* [CP] Copy Pods Resources */,
+				9DCD67B782BBD3FF18A26566 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -245,6 +249,7 @@
 				C47C8116235F3D01005E4808 /* Frameworks */,
 				C47C8117235F3D01005E4808 /* Resources */,
 				B559992E42E4373CEF53100E /* [CP] Copy Pods Resources */,
+				0FE0ED7BA7B1A18D20B376F0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -327,6 +332,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0FE0ED7BA7B1A18D20B376F0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Walking and Talking-Walking and TalkingUITests/Pods-Walking and Talking-Walking and TalkingUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Walking and Talking-Walking and TalkingUITests/Pods-Walking and Talking-Walking and TalkingUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Walking and Talking-Walking and TalkingUITests/Pods-Walking and Talking-Walking and TalkingUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4DBF930DC2B7EEE55793FE52 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -369,6 +391,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DCD67B782BBD3FF18A26566 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Walking and Talking/Pods-Walking and Talking-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Walking and Talking/Pods-Walking and Talking-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Walking and Talking/Pods-Walking and Talking-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B559992E42E4373CEF53100E /* [CP] Copy Pods Resources */ = {
@@ -435,14 +474,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4E2A859237A169E007E61DF /* CategoryViewController.swift in Sources */,
+				C473B2EC23E0CF930096239E /* Direction.swift in Sources */,
 				C47C8100235F3CF6005E4808 /* MapViewController.swift in Sources */,
 				C424F50A236B2A6800B547E0 /* NearTableViewCell.swift in Sources */,
 				C47C80FE235F3CF6005E4808 /* LocationViewController.swift in Sources */,
+				C40D7DF923E06F5B00C0427D /* DirectionsViewController.swift in Sources */,
 				C4D0602B2370C70C00F2A040 /* LocationTableViewCell.swift in Sources */,
 				C476FB942392C27F00B2DE66 /* savedData.swift in Sources */,
 				C47C80FA235F3CF6005E4808 /* AppDelegate.swift in Sources */,
 				C4B2FA3B236E090B0004D813 /* NearYouViewController.swift in Sources */,
-				C424F508236B2A5900B547E0 /* SavedTableViewCell.swift in Sources */,
 				C47C80FC235F3CF6005E4808 /* SceneDelegate.swift in Sources */,
 				C476FB962392CB3700B2DE66 /* Place.swift in Sources */,
 				C44CCF8C23968F2400DFC7A2 /* SettingsViewController.swift in Sources */,
