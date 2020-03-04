@@ -51,7 +51,7 @@ class NearYouViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\((delegate.locationlist.last?.coordinate.latitude)!),\((delegate.locationlist.last?.coordinate.longitude)!)&radius=\(savedData.shared.getSettings()[1])&keyword=\((self.title)!)&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc")
-        downloadURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\((delegate.locationlist.last?.coordinate.latitude)!),\((delegate.locationlist.last?.coordinate.longitude)!)&radius=\(savedData.shared.getSettings()[1])&keyword=\((self.title)!)&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc"
+        downloadURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\((delegate.locationlist.last?.coordinate.latitude)!),\((delegate.locationlist.last?.coordinate.longitude)!)&rankby=distance&keyword=\((self.title)!)&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc"
 
         dataDownload()
     }

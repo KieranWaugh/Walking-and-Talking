@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         GMSServices.provideAPIKey("AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc")
         GMSPlacesClient.provideAPIKey("AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc")
         
+        
+        
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
            // Request when-in-use authorization initially

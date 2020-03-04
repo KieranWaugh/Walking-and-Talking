@@ -13,7 +13,6 @@ class LocationViewController: UITableViewController {
     
     var placesClient: GMSPlacesClient!
     private var nearYouLocations : [String] = []
-    
     let sectionTitle = ["", "Saved", "Near You"]
     var items = [[""],[""],[""]]
     var favourites : [Place] = []
@@ -36,12 +35,16 @@ class LocationViewController: UITableViewController {
         self.title = "Location"
         
         loadData()
+        tableView.estimatedRowHeight = 40
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        
         print("times \((savedData.shared.getSettings()[3]))")
         let sav = Double(savedData.shared.getSettings()[3])
-        
+        tableView.estimatedRowHeight = 44
         print("times \(Int(sav!*60)/60)")
         _ = Timer.scheduledTimer(withTimeInterval: sav!*60, repeats: true) { timer in
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! LocationTableViewCell
+            _ = self.tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! LocationTableViewCell
             let indexPath = IndexPath(item: 0, section: 0)
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
             //cell.updateLocaition()
@@ -57,6 +60,7 @@ class LocationViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        tableView.reloadData()
         
     }
     
@@ -87,7 +91,7 @@ class LocationViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.section == 0){
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! LocationTableViewCell
+            _ = tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! LocationTableViewCell
             tableView.reloadRows(at: [indexPath], with: .automatic)
             //cell.speak()
             print("speaking - refresh")
@@ -140,6 +144,10 @@ class LocationViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell") as! LocationTableViewCell
             //cell.speak()
             cell.selectionStyle = .none
+            cell.accessibilityTraits = .startsMediaSession
+            cell.accessibilityLabel = "double tap to update and read location"
+            
+            //UIAccessibility.post(notification: .announcement, argument: "")
             return cell
         }
         else if (indexPath.section == 1) {
@@ -149,6 +157,7 @@ class LocationViewController: UITableViewController {
             print(indexPath.row)
             label.text = items[indexPath.section][indexPath.row]
             cell.selectionStyle = .none
+            cell.accessibilityValue = "saved"
             return cell
         }else{
             
@@ -156,13 +165,16 @@ class LocationViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "newCell", for: indexPath)
                 let label = cell.contentView.viewWithTag(6) as! UILabel
                 label.text = items[indexPath.section ][indexPath.item]
+                
                 cell.selectionStyle = .none
+                cell.accessibilityLabel = "double tap to add new location category"
                 return cell
             }else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NearCell", for: indexPath)
                 let label = cell.contentView.viewWithTag(2) as! UILabel
                 label.text = items[indexPath.section ][indexPath.item]
                 cell.selectionStyle = .none
+                cell.accessibilityValue = "double tap to open category"
                 return cell
             }
             
@@ -229,14 +241,15 @@ class LocationViewController: UITableViewController {
             return 0
         }
 
-        return 40
+        return UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (indexPath.section == 0){
             return 80
         }else{
-            return 40
+            tableView.estimatedRowHeight = 44.0
+            return UITableView.automaticDimension
         }
     
     }

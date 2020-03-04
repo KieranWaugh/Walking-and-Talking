@@ -20,14 +20,14 @@ class CategoryViewController: UIViewController {
     
     let delegate = UIApplication.shared.delegate as! AppDelegate
     var link: String = ""
-    
+    var polyLine: String = ""
     var location: Place?
     var stepsArray : [Direction] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
         setupFavButton()
-        link = "https://maps.googleapis.com/maps/api/directions/json?origin=\((delegate.locationlist.first?.coordinate.latitude)!),\((delegate.locationlist.first?.coordinate.longitude)!)&destination=\((location?.latitude)!),\((location?.longtude)!)&mode=walking&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc"
+        link = "https://maps.googleapis.com/maps/api/directions/json?origin=\((delegate.locationlist.last?.coordinate.latitude)!),\((delegate.locationlist.last?.coordinate.longitude)!)&destination=\((location?.latitude)!),\((location?.longtude)!)&mode=walking&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc"
         print(link)
         JSONParse()
         // Do any additional setup after loading the view.
@@ -45,8 +45,9 @@ class CategoryViewController: UIViewController {
         let path = GMSPath(fromEncodedPath: polyStr)
         let polyline = GMSPolyline(path: path)
         polyline.strokeWidth = 4.0
+        polyline.strokeColor = .green
         polyline.map = mapView // Your map view
-        
+        polyline.accessibilityLabel = "Map with route between your location and \((navigationController!.title)!)"
         DispatchQueue.main.async
         {
          if self.mapView != nil
@@ -62,16 +63,17 @@ class CategoryViewController: UIViewController {
         mapView.camera = camera
         let marker = GMSMarker()
         let startMarker = GMSMarker()
-        startMarker.position = CLLocationCoordinate2D(latitude: (delegate.locationlist.first?.coordinate.latitude)!, longitude: (delegate.locationlist.first?.coordinate.longitude)!)
+        startMarker.position = CLLocationCoordinate2D(latitude: (delegate.locationlist.last?.coordinate.latitude)!, longitude: (delegate.locationlist.last?.coordinate.longitude)!)
         startMarker.icon = GMSMarker.markerImage(with: UIColor.green)
         startMarker.map = mapView
         marker.position = CLLocationCoordinate2D(latitude: (location?.latitude!)!, longitude: (location?.longtude!)!)
         marker.title = self.title
         marker.map = mapView
+        mapView.accessibilityElementsHidden = false
+        
     }
     
     @IBAction func favButton(_ sender: Any) {
-        //let loc = Place(uuid: UUID(), name: "Test", latitude: 55.944466, longitude: -3.1868697294240014, open: true)
         
         
         print("current title \(favButton.currentTitle!)")
@@ -102,20 +104,24 @@ class CategoryViewController: UIViewController {
             let routes = json["routes"].arrayValue
             let route = routes[0]
             let line = route["overview_polyline"]
-            let polyLine = line["points"].stringValue
-            self.showPath(polyStr: polyLine)
+            self.polyLine = line["points"].stringValue
+            self.showPath(polyStr: self.polyLine)
             let legs = route["legs"].arrayValue
             let leg = legs[0]
-            let distance = leg["distance"]
-            let duration = leg["duration"]
+            let distance = leg["distance"].arrayValue
+            let durationArray = leg["duration"]
+            print(durationArray)
+            self.navigateButton.setTitle("Navigate - \(durationArray["text"].stringValue)", for: .normal)
             let steps = leg["steps"].arrayValue
             for step in steps {
                 let start = step["start_location"]
                 let end = step["end_location"]
+                let stepDistance = step["distance"]
+                let dist = stepDistance["value"]
                 let instr = step["html_instructions"].stringValue
                 let man = step["maneuver"].stringValue
                 let time = step["duration"]
-                self.stepsArray.append(Direction(startLat: start["lat"].stringValue, startLng: start["lng"].stringValue, endLat: end["lat"].stringValue, endLng: end["lng"].stringValue, instruction: self.stripHTML(fromString: instr), maneuver: man, time: time["text"].stringValue))
+                self.stepsArray.append(Direction(startLat: start["lat"].stringValue, startLng: start["lng"].stringValue, endLat: end["lat"].stringValue, endLng: end["lng"].stringValue, instruction: self.stripHTML(fromString: instr), maneuver: man, time: time["text"].stringValue, distance: dist.int!))
             }
             
         }
@@ -142,7 +148,8 @@ class CategoryViewController: UIViewController {
         if segue.identifier! == "DirectionsSegue" {
             let controller = (segue.destination as? UIViewController) as?  DirectionsViewController
             controller!.route = stepsArray
-            
+            controller?.location = location! 
+            controller?.locString = polyLine
         }
     }
     

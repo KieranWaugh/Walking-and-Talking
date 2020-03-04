@@ -13,12 +13,13 @@ class Direction : Codable {
     let time : String?
     let endLat : String?
     let endLng : String?
-    let instruction : String?
+    var instruction : String?
     let maneuver : String?
     let startLat : String?
     let startLng  : String?
+    let distance : Int?
     
-    init(startLat:String, startLng:String, endLat:String, endLng:String, instruction:String, maneuver:String, time:String){
+    init(startLat:String, startLng:String, endLat:String, endLng:String, instruction:String, maneuver:String, time:String, distance:Int){
         self.startLat = startLat
         self.startLng = startLng
         self.endLat = endLat
@@ -26,5 +27,10 @@ class Direction : Codable {
         self.instruction = instruction
         self.maneuver = maneuver
         self.time = time
+        self.distance = distance
+    }
+    
+    func setInstruction(new: String){
+        instruction = new
     }
 }

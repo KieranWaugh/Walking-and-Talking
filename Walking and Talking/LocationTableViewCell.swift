@@ -25,15 +25,29 @@ class LocationTableViewCell: UITableViewCell, AVSpeechSynthesizerDelegate {
         self.locationLabel.text = "Locating You..."
         self.locationLabel.adjustsFontSizeToFitWidth = true
         if (delegate.locationlist.last != nil){
-            let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\((delegate.locationlist.last?.coordinate.latitude)!),\((delegate.locationlist.last?.coordinate.longitude)!)&type=point_of_interest&radius=100&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc"
+            let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\((delegate.locationlist.last?.coordinate.latitude)!),\((delegate.locationlist.last?.coordinate.longitude)!)&type=point_of_interest&radius=100&rankby=prominence&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc"
+            // "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\((delegate.locationlist.last?.coordinate.latitude)!),\((delegate.locationlist.last?.coordinate.longitude)!)&type=point_of_interest&radius=100&key=AIzaSyDj4mKyfextSfHk-0K89rCnG5H01ydabZc"
             print(url)
             savedData.shared.getBuilding(downloadURL: url){(originPlacemark) in
                     if ((originPlacemark) != nil) {
                         self.locationLabel.text = (originPlacemark)
-                        if (savedData.shared.isSpeaking == false){
-                            savedData.shared.isSpeaking = true
-                            self.speak(place: originPlacemark)
+                        
+                        if (UIAccessibility.isVoiceOverRunning){
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                                if (savedData.shared.isSpeaking == false){
+                                    savedData.shared.isSpeaking = true
+                                    self.speak(place: originPlacemark)
+                                }
+                            }
+                        }else{
+                            if (savedData.shared.isSpeaking == false){
+                                savedData.shared.isSpeaking = true
+                                self.speak(place: originPlacemark)
+                            }
                         }
+                        
+                        
                     
                     }else{
                         self.locationLabel.text = "Locating You..."
@@ -53,7 +67,7 @@ class LocationTableViewCell: UITableViewCell, AVSpeechSynthesizerDelegate {
     }
     
     func speak(place: String){
-        print("in speaking")
+        let announcementDidFinishNotification: NSNotification.Name
         let utterance = AVSpeechUtterance(string:" You are currently located near: \(place)")
         utterance.voice = AVSpeechSynthesisVoice(language: "\(savedData.shared.getSettings()[4])")
         utterance.rate = (Float(savedData.shared.getSettings()[2]))!/Float(10)
