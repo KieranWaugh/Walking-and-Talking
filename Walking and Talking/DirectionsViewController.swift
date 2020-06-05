@@ -160,10 +160,6 @@ class DirectionsViewController: UIViewController, AVSpeechSynthesizerDelegate {
         if (currentDirection == 0){
             currentLoc = delegate.locationlist.last!
         }
-        
-        
-        
-        
         if (self.currentDirection != route.count){
             
             let endlat = Double(self.route[self.currentDirection].endLat!)
@@ -171,9 +167,6 @@ class DirectionsViewController: UIViewController, AVSpeechSynthesizerDelegate {
             endloc = CLLocation(latitude: endlat!, longitude: endlng!)
             
         }
-        
-        
-        
             if (self.currentDirection == route.count){
                 self.endButtonPressed(self)
                 self.speak(txt: "Arrived at destination")

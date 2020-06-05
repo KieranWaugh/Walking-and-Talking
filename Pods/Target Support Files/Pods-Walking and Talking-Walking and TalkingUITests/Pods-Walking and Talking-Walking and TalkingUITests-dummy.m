@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_Walking_and_Talking_Walking_and_TalkingUITests : NSObject
+@end
+@implementation PodsDummy_Pods_Walking_and_Talking_Walking_and_TalkingUITests
+@end

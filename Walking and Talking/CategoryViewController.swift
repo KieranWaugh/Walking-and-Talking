@@ -36,7 +36,7 @@ class CategoryViewController: UIViewController {
     func setupFavButton(){
         print("favs " , savedData.shared.Favoutites)
         if savedData.shared.Favoutites.contains((location?.uuid!)!){
-            favButton.setTitle("Un-Favourite", for: .normal)
+            favButton.setTitle("Unfavourite", for: .normal)
             favButton.backgroundColor = .green
         }
     }

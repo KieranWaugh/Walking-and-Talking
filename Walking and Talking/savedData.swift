@@ -24,7 +24,7 @@ class savedData {
     // [4] - speech region
     
     
-    struct Collection: Decodable { // or Decodable
+    struct Collection: Decodable { 
       let results: [Result]
     }
     struct Result : Decodable {

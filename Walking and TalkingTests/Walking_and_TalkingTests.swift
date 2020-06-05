@@ -7,28 +7,36 @@
 //
 
 import XCTest
+import UIKit
+import CoreLocation
 @testable import Walking_and_Talking
 
 class Walking_and_TalkingTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    
+    func testAddRemoveFav() throws{
+        let newPlace = Place(uuid: "uuid", name: "test", latitude: 11.23, longitude: 12.67, open: true, category: "test cat")
+        try? savedData.shared.addFavourite(location: newPlace)
+        sleep(1)
+        var loaded = try? savedData.shared.loadFavourites()
+        XCTAssertTrue(loaded!.count>1, "found \(loaded![0].uuid)")
+        XCTAssertEqual(newPlace.uuid, loaded![0].uuid)
+        print("IN HERE")
+        try? savedData.shared.removeFav(id: newPlace.uuid!)
+        sleep(1)
+        loaded = try? savedData.shared.loadFavourites()
+        
+        XCTAssertTrue(loaded!.count == 1) // as there is a default value for data population will always be 1
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    
+    func testAddCategory() throws{
+        let titles = ["one","two", "three"]
+        try? savedData.shared.saveCategries(list: titles)
+        let loaded = try? savedData.shared.loadCategroies()
+        XCTAssertEqual(titles,loaded);
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    
+    
 }

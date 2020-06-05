@@ -1,0 +1,6 @@
+module Pods_Walking_and_Talking_Walking_and_TalkingUITests {
+  umbrella header "Pods-Walking and Talking-Walking and TalkingUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
